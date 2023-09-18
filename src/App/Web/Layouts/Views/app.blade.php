@@ -17,15 +17,15 @@
         id="vite-plugin-pwa:register-sw"
         src="{{ asset('build/registerSW.js') }}"></script>
     {!! SEOMeta::generate() !!}
-    <style>
+    <style nonce="{{ csp_nonce() }}">
         [x-cloak] {
             display: none !important;
         }
     </style>
     @vite('resources/css/app.css')
-    @googlefonts()
-    @googlefonts('serif')
-    @googlefonts('code')
+    @googlefonts(['nonce' => csp_nonce()])
+    @googlefonts(['font' => 'serif', 'nonce' => csp_nonce()])
+    @googlefonts(['font' => 'code', 'nonce' => csp_nonce()])
 </head>
 
 <body class="antialiased">

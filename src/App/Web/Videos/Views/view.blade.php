@@ -85,7 +85,7 @@
 </div>
 
 @push('scripts')
-    <script>
+    <script nonce="{{ csp_nonce() }}">
         function timeUpdate(e) {
             const time = e.target.currentTime || 0
 
